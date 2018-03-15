@@ -19,6 +19,7 @@ from django.contrib import admin
 from blog_app import views
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view()),
+    url(r'^$', views.BlogIndexView.as_view()),
     url(r'^admin/', admin.site.urls),
+    url(r'^blog_list/', views.BlogListview.as_view()),
 ]

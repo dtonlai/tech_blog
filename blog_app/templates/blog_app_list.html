@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 {% extends 'blog_app_base.html' %}
+
 {% block body_block%}
+
   <h1>Recent posts</h1>
+  <ol>
+    {% for post in blogpost_list %}
+      <h2><li>{{ post.title }}</li></h2>
+    {% endfor %}
+  </ol>
+
 {% endblock %}

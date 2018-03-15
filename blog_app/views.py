@@ -1,7 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import (View, TemplateView,)
+from django.views.generic import (View, TemplateView, ListView,
+                                DetailView, CreateView, UpdateView,
+                                DeleteView)
+from . import models
 
-class IndexView(TemplateView):
+class BlogIndexView(TemplateView):
     template_name = 'blog_app_index.html'
 
-# Create your views here.
+class BlogListview(ListView):
+    template_name = 'blog_app_list.html'
+    model = models.BlogPost
