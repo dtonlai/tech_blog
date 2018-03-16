@@ -21,7 +21,7 @@ from blog_app import views
 app_name = 'blog_app'
 
 urlpatterns = [
-    url(r'^$', views.BlogIndexView.as_view()),
+    url(r'^$', views.BlogIndexView.as_view(), name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^blog_list/', include('blog_app.urls')),
 ]
