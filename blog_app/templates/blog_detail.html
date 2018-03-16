@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 {% extends 'blog_app_base.html' %}
 {% block body_block%}
+
   <h1>Blog detail</h1>
+  <h2>Title: {{ blogpost_detail.title }}</h2>
+  <h2>Author: {{ blogpost_detail.author }}</h2>
+  <h2>Content: {{ blogpost_detail.content }}</h2>
+
 {% endblock %}
