@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import (TemplateView, ListView, DetailView)
+from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth import authenticate, login, logout
+
 from . import models
 from blog_app.forms import UserForm
 
@@ -38,3 +43,24 @@ def register(request):
 
     return render(request,'blog_app_register.html', {'user_form': user_form,
                                                      'registered': registered})
+
+def user_login(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                return HttpResponse('Account is not active')
+        else:
+            print('Someone tried to login and failed')
+            print('Username: {} and Password: {}'.format(username,password))
+            return HttpResponse('Invalid login details!')
+    else:
+        return render(request, 'blog_app_login.html', {})
