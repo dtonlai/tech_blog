@@ -64,3 +64,8 @@ def user_login(request):
             return HttpResponse('Invalid login details!')
     else:
         return render(request, 'blog_app_login.html', {})
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
