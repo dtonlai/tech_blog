@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import (TemplateView, ListView, DetailView)
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 
@@ -15,10 +16,15 @@ class BlogRegisterView(TemplateView):
     context_object_name = 'user_form'
     template_name = 'blog_app_register.html'
 
+@method_decorator(login_required, name='dispatch')
 class BlogListView(ListView):
     model = models.BlogPost
     template_name = 'blog_app_list.html'
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+        
 class BlogDetailView(DetailView):
     context_object_name = 'blogpost_detail'
     model = models.BlogPost
