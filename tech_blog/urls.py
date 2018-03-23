@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^$', views.BlogIndexView.as_view(), name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^blog_list/', include('blog_app.urls')),
+    url(r'^register/', views.register, name='register'),
 ]
