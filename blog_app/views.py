@@ -24,7 +24,7 @@ class BlogListView(ListView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-        
+
 class BlogDetailView(DetailView):
     context_object_name = 'blogpost_detail'
     model = models.BlogPost

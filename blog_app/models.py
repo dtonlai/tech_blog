@@ -16,3 +16,11 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+class BlogPostComment(models.Model):
+    content = models.CharField(max_length=256)
+    author = models.CharField(max_length=256)
+    post = models.ForeignKey(BlogPost, related_name='comment')
+
+    def __str__(self):
+        return self.author

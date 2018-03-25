@@ -7,4 +7,8 @@
   <h2>Author: {{ blogpost_detail.author }}</h2>
   <h2>Content: {{ blogpost_detail.content }}</h2>
 
+  {% for comments in blogpost_detail.comment.all %}
+    <p>{{ comments.content }}</p>
+  {% endfor %}
+
 {% endblock %}

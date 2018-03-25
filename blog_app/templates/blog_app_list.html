@@ -3,11 +3,10 @@
 {% block body_block%}
 
   <h1>Recent posts</h1>
-  <ol>
-    {% for post in blogpost_list %}
-      <h2><li><a href="{{ post.id }}">{{ post.title }}</a></li></h2>
-      <p><li>Published on: {{ post.date }}</li></p>
-    {% endfor %}
-  </ol>
+  {% for post in blogpost_list %}
+    <h2><a href="{{ post.id }}">{{ post.title }}</a></h2>
+    <p>Published on: {{ post.date }}</p>
+    <p>Comments: {{ post.comment.count }}</p>
+  {% endfor %}
 
 {% endblock %}
