@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends 'blog_app_base.html' %}
+{% block body_block %}
+  <h1>Confirm delete</h1>
+  <p>Are you sure you want to delete this post?</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type='submit' value='Confirm delete'>
+    <p><a href="{% url 'tech_blog:detail' pk=blogpost.pk %}">Cancel</a></p>
+  </form>
+{% endblock %}

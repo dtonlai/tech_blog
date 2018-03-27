@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import (TemplateView, ListView, DetailView,
                                   CreateView, DeleteView, UpdateView)
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect, HttpResponse
@@ -40,6 +40,11 @@ class BlogUpdateView(UpdateView):
     fields = ('title', 'author', 'content')
     model = models.BlogPost
     template_name = 'blogpost_form.html'
+
+class BlogDeleteView(DeleteView):
+    model = models.BlogPost
+    success_url = reverse_lazy('tech_blog:list')
+    template_name = 'blogpost_confirm_delete.html'
 
 def register(request):
     registered = False
