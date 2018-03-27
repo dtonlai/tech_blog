@@ -10,5 +10,6 @@
   {% for comments in blogpost_detail.comment.all %}
     <p>{{ comments.content }}</p>
   {% endfor %}
+  <p><a href="{% url 'tech_blog:update' pk=blogpost_detail.pk %}">Edit</a></p>
 
 {% endblock %}

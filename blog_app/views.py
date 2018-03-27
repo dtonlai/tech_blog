@@ -36,6 +36,11 @@ class BlogCreateView(CreateView):
     model = models.BlogPost
     template_name = 'blogpost_form.html'
 
+class BlogUpdateView(UpdateView):
+    fields = ('title', 'author', 'content')
+    model = models.BlogPost
+    template_name = 'blogpost_form.html'
+
 def register(request):
     registered = False
 
