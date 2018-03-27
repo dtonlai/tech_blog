@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import (TemplateView, ListView, DetailView)
+from django.views.generic import (TemplateView, ListView, DetailView,
+                                  CreateView, DeleteView, UpdateView)
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -29,6 +30,11 @@ class BlogDetailView(DetailView):
     context_object_name = 'blogpost_detail'
     model = models.BlogPost
     template_name = 'blog_detail.html'
+
+class BlogCreateView(CreateView):
+    fields = ('title', 'author', 'content')
+    model = models.BlogPost
+    template_name = 'blogpost_form.html'
 
 def register(request):
     registered = False

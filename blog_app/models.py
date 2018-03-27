@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
+
 from datetime import datetime
 
 class UserProfileInfo(models.Model):
@@ -16,6 +18,9 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('tech_blog:detail', kwargs={'pk':self.pk})
 
 class BlogPostComment(models.Model):
     content = models.CharField(max_length=256)

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'blog_app_base.html' %}
+{% block body_block %}
+  <h1>
+    {% if not form.instance.pk %}
+      Create blog post
+    {% else %}
+      Update post
+    {% endif %}
+  </h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="" value="Create">
+  </form>
+{% endblock %}
