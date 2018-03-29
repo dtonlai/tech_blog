@@ -17,11 +17,15 @@ h1 {
 }
 
 .nav-bar a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 .nav-bar a.active {
-    background-color: #4CAF50;
-    color: white;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.home {
+  font-family: Helvetica;
 }

@@ -4,12 +4,13 @@
   <head>
     <meta charset="utf-8">
     <title>Tech Blog</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   </head>
   <body>
     <nav>
       <div class="nav-bar">
-        <a href="{% url 'index' %}">HOME</a>
+        <a class="home" href="{% url 'index' %}">TECH BLOG</a>
         <a href="{% url 'admin:index' %}">Admin</a>
         <a href="{% url 'tech_blog:list' %}">Recent</a>
         <a href="{% url 'register' %}">Register</a>
