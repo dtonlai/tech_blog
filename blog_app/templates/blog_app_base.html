@@ -7,22 +7,40 @@
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body background="{% static 'images/background.jpg' %}" class='background'>
-    <nav>
-      <div class="nav-bar">
-        <a class="home" href="{% url 'index' %}">TECH BLOG</a>
-        <a href="{% url 'admin:index' %}">Admin</a>
-        <a href="{% url 'tech_blog:list' %}">Recent</a>
-        <a href="{% url 'register' %}">Register</a>
-        {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        {% endif %}
-      </div>
-    </nav>
 
+    <nav class="navbar navbar-light bg-light navbar-expand-lg fixed-top">
+
+      <a class="navbar-brand" href="{% url 'index' %}">TECH BLOG</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+          </li>
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'tech_blog:list' %}">Recent</a>
+          </li>
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+    </nav>
 
     {% block body_block %}
     {% endblock %}
