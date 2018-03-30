@@ -1,5 +1,14 @@
+body {
+  font-family: 'Roboto';
+}
+
 h1 {
   color: red;
+}
+
+.background {
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .nav-bar {
@@ -27,5 +36,5 @@ h1 {
 }
 
 .home {
-  font-family: Helvetica;
+  font-family: 'Helvetica', sans-serif;
 }
