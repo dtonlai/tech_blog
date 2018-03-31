@@ -2,10 +2,6 @@ body {
   font-family: 'Roboto';
 }
 
-h1 {
-  color: red;
-}
-
 .background {
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 {% extends 'blog_app_base.html'%}
 {% block body_block %}
-  <h1>Registration form</h1>
+  <div class="container" style="margin-top:56px;">
+      <h1>Registration form</h1>
 
-  {% if registered %}
-    <h2>Thanks for registering!</h2>
-  {% else %}
-    <form class="register-user" method="post">
-      {% csrf_token %}
-      {{ user_form.as_p }}
-      <input type="submit" value="Register!">
-    </form>
-  {% endif %}
-
+      {% if registered %}
+        <h2>Thanks for registering!</h2>
+      {% else %}
+        <form class="register-user" method="post">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+            <button class="btn btn-primary" type="submit" value="Register!">
+                Register!
+            </button>
+        </form>
+      {% endif %}
+  </div>
 {% endblock %}
