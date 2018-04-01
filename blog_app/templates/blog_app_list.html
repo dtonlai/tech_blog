@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 {% extends 'blog_app_base.html' %}
 {% block body_block%}
-
-  <h1>Recent posts</h1>
-  {% for post in blogpost_list %}
-    <h2><a href="{{ post.id }}">{{ post.title }}</a></h2>
-    <p>Published on: {{ post.date }}</p>
-    <p>Comments: {{ post.comment.count }}</p>
-  {% endfor %}
+<div class="container" style="margin-top:56px;">
+    <h1>Recent posts</h1>
+    <div class="list-group row ml-auto">
+        {% for post in blogpost_list %}
+          <a class="col-lg-12 list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="{{ post.id }}">
+            <span>{{ post.date|date:"M d, Y" }}</span>
+            <span>{{ post.title }}</span>
+            <span class="badge badge-primary badge-pill">{{ post.comment.count }}</span>
+          </a>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
