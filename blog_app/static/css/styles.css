@@ -1,13 +1,17 @@
 body {
   font-family: 'Roboto';
-}
-
-.background {
+  background-image: url("/static/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+/* This styling is used to change cut-off for dropdown */
 li.dropdown:last-child .dropdown-menu {
   right: 0;
   left: auto;
 }
+
+.header-index {
+  padding: 1em;
+}
+/* ----------- */
