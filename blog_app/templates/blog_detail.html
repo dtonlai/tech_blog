@@ -15,14 +15,16 @@
                 {% for comments in blogpost_detail.comment.all %}
                   <p>{{ comments.content }}</p>
                 {% endfor %}
-                    <form class="" action="index.html" method="post">
+                    <form method="post">
+                        {% csrf_token %}
                         <div class="form-group">
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
-                        <button class="btn btn-primary">Comment</button>
+                        <button class="btn btn-primary" type="submit">Comment</button>
                     </form>
             {% else %}
-                <form class="" action="index.html" method="post">
+                <form method="post">
+                    {% csrf_token %}
                     <div class="form-group">
                         <textarea
                          class="form-control"
@@ -30,7 +32,7 @@
                          placeholder="Nothing here yet, be the first one to post!"
                          ></textarea>
                     </div>
-                    <button class="btn btn-primary">Comment</button>
+                    <input class="btn btn-primary" type="submit" value="Comment">                    
                 </form>
             {% endif %}
         </div>
