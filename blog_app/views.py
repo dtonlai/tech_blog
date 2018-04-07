@@ -45,6 +45,11 @@ class BlogDeleteView(DeleteView):
     success_url = reverse_lazy('tech_blog:list')
     template_name = 'blogpost_confirm_delete.html'
 
+class BlogPostCommentCreateView(CreateView):
+    fields = ('title', 'author', 'post')
+    model = models.BlogPostComment
+    template_name = 'blogpostcomment_form.html'
+
 def register(request):
     registered = False
 

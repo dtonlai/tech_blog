@@ -6,12 +6,33 @@
         <div class="card-body">
             <h2 class="card-title">{{ blogpost_detail.title }}</h2>
             <p>{{ blogpost_detail.author }}</p>
-            <p>Content: {{ blogpost_detail.content }}</p>
+            <p>{{ blogpost_detail.content }}</p>
+            <a href="{% url 'tech_blog:update' pk=blogpost_detail.pk %}">Edit</a>
+            <a href="{% url 'tech_blog:delete' pk=blogpost_detail.pk %}">Delete</a>
             <hr/>
-            {% for comments in blogpost_detail.comment.all %}
-              <p>{{ comments.content }}</p>
-            {% endfor %}
-            <p><a href="{% url 'tech_blog:update' pk=blogpost_detail.pk %}">Edit</a></p>
+            <h5>Comments</h5>
+            {% if blogpost_detail.comment.all %}
+                {% for comments in blogpost_detail.comment.all %}
+                  <p>{{ comments.content }}</p>
+                {% endfor %}
+                    <form class="" action="index.html" method="post">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button class="btn btn-primary">Comment</button>
+                    </form>
+            {% else %}
+                <form class="" action="index.html" method="post">
+                    <div class="form-group">
+                        <textarea
+                         class="form-control"
+                         rows="3"
+                         placeholder="Nothing here yet, be the first one to post!"
+                         ></textarea>
+                    </div>
+                    <button class="btn btn-primary">Comment</button>
+                </form>
+            {% endif %}
         </div>
     </div>
 </div>
